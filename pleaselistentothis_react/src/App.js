@@ -1,19 +1,24 @@
-import logo from './logo.svg';
+import React from "react"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import './App.css';
-import ReactPlayer from "react-player"
+import Navbar from './components/Navbar';
+import Register from "./components/Register"
+import Login from "./components/Login"
+import Home from "./components/Home"
 
-import RegisterContainer from './containers/RegisterContainer';
 
 function App() {
   return (
-    <>
-    <div>
-    {/* <ReactPlayer 
-    url ="https://soundcloud.com/andrewcaldermusic/do-it-right"/> */}
-    <h2> Register to PleaseListenToThis </h2>
-    </div>
-    < RegisterContainer />
-    </>
+    <main>
+    <h1>PleaseListenToThis</h1>
+      <Navbar />
+        <Routes> 
+          <Route path='/' element={<Home/>} />
+          <Route path='/register' element={<Register/>} />
+          <Route path='/login' element={<Login/>} />
+        </Routes>
+      </main>
   );
 }
+
 export default App;

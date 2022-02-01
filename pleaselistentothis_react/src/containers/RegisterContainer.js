@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import UserForm from '../components/UserForm'
 import UserList from '../components/UserList'
-
+import { Link } from 'react-router'
 
 const RegisterContainer = () => {
 
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-  fetchUsers();
-  }, []);
+      fetchUsers();
+      }, []);
 
     const fetchUsers = () => {
         return fetch('http://localhost:8080/users')
@@ -33,7 +33,8 @@ return(
     <UserForm 
     onUserSubmit={handleUserSubmit}
     />
-    <UserList users = {users}/>
+  
+    {/* <UserList users = {users}/> */}
     </div>
  )
 }
