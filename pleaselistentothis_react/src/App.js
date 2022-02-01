@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Register from "./components/Register"
 import Login from "./components/Login"
 import Home from "./components/Home"
+import Discover from "./components/Discover"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/login' element={<Login/>} />
+          <Route path='/discover' element={<Discover/>} />
         </Routes>
       </main>
   );

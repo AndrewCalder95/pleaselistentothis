@@ -47,16 +47,16 @@ const UserForm = ({ onUserSubmit }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-    
+    <ul>
       <label htmlFor="firstName">First Name:</label>
-      <input type="text" name="firstName" value={firstName} onChange={handleFirstNameChange} />
+      <li><input type="text" name="firstName" value={firstName} onChange={handleFirstNameChange} /></li>
       <label htmlFor="secondName">Last Name:</label>
-      <input type="text" name="secondName" value={secondName} onChange={handleSecondNameChange} />
+      <li><input type="text" name="secondName" value={secondName} onChange={handleSecondNameChange} /></li>
       <label htmlFor="username">Username:</label>
-      <input type="text" name="username" value={username} onChange={handleUsernameChange} />
+      <li><input type="text" name="username" value={username} onChange={handleUsernameChange} /></li>
       <label htmlFor="password">Password:</label>
-      <input type="text" name="password" value={password} onChange={handlePasswordChange} />
-
+      <li><input type="text" name="password" value={password} onChange={handlePasswordChange} /></li>
+      </ul>
       <input type="submit" value="Save" />
     </form>
   
