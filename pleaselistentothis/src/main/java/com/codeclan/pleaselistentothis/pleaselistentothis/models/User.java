@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
@@ -12,7 +14,8 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Long id;
 
     @Column(name = "first_name")
@@ -44,8 +47,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Track> myTracks;
 
-    @Transient
-    private String passwordConfirm;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
 
 
     public User() {
@@ -66,6 +73,12 @@ public class User {
 //
 //    basic login
     public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(String name, String username, String password) {
+        this.firstName = name;
         this.username = username;
         this.password = password;
     }
@@ -159,13 +172,12 @@ public class User {
         this.myTracks.add(track);
     }
 
-
-    public String getPasswordConfirm() {
-        return passwordConfirm;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
 }

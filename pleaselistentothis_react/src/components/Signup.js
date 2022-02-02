@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import AuthService from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.login(username, password).then(
-        () => {
+      await AuthService.signup(username, password).then(
+        (response) => {
+            console.log("Sign up successfully", response);
           navigate("/home");
-          window.location.reload();
+        //   window.location.reload();
         },
         (error) => {
           console.log(error);
@@ -27,8 +28,8 @@ const Login = () => {
 
   return (
     <div>
-      <form onSubmit={handleLogin}>
-        <h3>Login</h3>
+      <form onSubmit={handleSignup}>
+        <h3>Sign up</h3>
         <input
           type="text"
           placeholder="username"
@@ -41,10 +42,10 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Log in</button>
+        <button type="submit">Sign up</button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

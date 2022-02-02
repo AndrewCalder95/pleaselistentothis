@@ -1,10 +1,8 @@
 package com.codeclan.pleaselistentothis.pleaselistentothis.components;
 
 
-import com.codeclan.pleaselistentothis.pleaselistentothis.models.Review;
-import com.codeclan.pleaselistentothis.pleaselistentothis.models.Track;
-import com.codeclan.pleaselistentothis.pleaselistentothis.models.User;
-import com.codeclan.pleaselistentothis.pleaselistentothis.models.interestLevel;
+import com.codeclan.pleaselistentothis.pleaselistentothis.models.*;
+import com.codeclan.pleaselistentothis.pleaselistentothis.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -22,7 +20,15 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     com.codeclan.pleaselistentothis.pleaselistentothis.repositories.trackRepository trackRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     public void run(ApplicationArguments args) {
+
+        Role role1 = new Role(RoleName.ROLE_USER);
+        roleRepository.save(role1);
+        Role role2 = new Role(RoleName.ROLE_ADMIN);
+        roleRepository.save(role2);
 
         User user1 = new User("user1", "$2a$10$SHLKXUyQ/.o070.8xYwg4.3i56JKmcq2o5YtokpbdoX.TnXPFP1Mm");
         User user2 = new User("user2", "mypassword");

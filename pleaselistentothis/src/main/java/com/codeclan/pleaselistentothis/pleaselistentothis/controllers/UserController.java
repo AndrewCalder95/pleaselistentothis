@@ -13,18 +13,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class UserController {
     @Autowired
     userRepository userRepository;
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(value = "/users")
-    public ResponseEntity<List<User>> getAllUsers(){
-        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    @GetMapping("/users")
+    public Iterable<User> getAllUsers(){
+        return userRepository.findAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "/users")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
