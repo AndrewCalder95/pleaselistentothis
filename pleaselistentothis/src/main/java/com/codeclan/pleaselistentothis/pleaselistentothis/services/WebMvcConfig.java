@@ -1,22 +1,24 @@
 package com.codeclan.pleaselistentothis.pleaselistentothis.services;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    private final long MAX_AGE_SECS = 3600;
-
-    @Value("${app.cors.allowedOrigins}")
-    private String[] allowedOrigins;
+    private static final String CORS_BASE_PATTERN = "/**";
+    private static final String ALLOWED_ORIGINS = "*";
+    private static final String ALLOWED_HEADERS = "*";
+    private static final String ALLOWED_METHODS = "*";
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins(allowedOrigins)
-                .allowedMethods("HEAD", "OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE")
-                .maxAge(MAX_AGE_SECS);
+        registry.addMapping(CORS_BASE_PATTERN)
+                .allowedOrigins(ALLOWED_ORIGINS)
+                .allowedHeaders(ALLOWED_HEADERS)
+                .allowedMethods(ALLOWED_METHODS);
     }
 }
 

@@ -27,7 +27,10 @@ public class TrackController {
         return new ResponseEntity<>(trackRepository.findById(id), HttpStatus.OK);
     }
 
-
+    @GetMapping(value = "/tracksbyuser")
+    public ResponseEntity<List<Track>> getTracksByUser(@RequestParam(name= "id") long id){
+        return new ResponseEntity<>(trackRepository.findByUserId(id), HttpStatus.OK);
+    }
 
 
 }

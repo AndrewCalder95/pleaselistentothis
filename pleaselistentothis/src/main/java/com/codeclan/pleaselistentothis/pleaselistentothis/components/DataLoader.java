@@ -33,13 +33,13 @@ public class DataLoader implements ApplicationRunner {
         User user1 = new User("ADMIN", "ADMIN", "ADMIN", "ADMIN", "$2a$10$H2wLImCAkegh//IezMtwSuKeTXEnTiErWJOnfgdYLXo/YxpaKzgUq");
         userRepository.save(user1);
 
-        Track track1 = new Track("Make Me Love", "www.hjksahf.com", user1);
+        Track track1 = new Track("Make Me Love", "https://soundcloud.com/andrewcaldermusic/make-me-love", user1);
         trackRepository.save(track1);
 
-        Track track2 = new Track("In The End", "www.hjksahf.com", user1);
+        Track track2 = new Track("In The End", "https://soundcloud.com/andrewcaldermusic/in-the-end", user1);
         trackRepository.save(track2);
 
-        Track track3 = new Track("F for You", "www.hjksahf.com", user1);
+        Track track3 = new Track("F for You", "https://soundcloud.com/disclosuremusic/f-for-you-totally-enormous-1", user1);
         trackRepository.save(track3);
 
 
