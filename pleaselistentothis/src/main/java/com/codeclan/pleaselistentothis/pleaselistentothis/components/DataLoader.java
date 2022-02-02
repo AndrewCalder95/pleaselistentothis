@@ -30,10 +30,8 @@ public class DataLoader implements ApplicationRunner {
         Role role2 = new Role(RoleName.ROLE_ADMIN);
         roleRepository.save(role2);
 
-        User user1 = new User("user1", "$2a$10$SHLKXUyQ/.o070.8xYwg4.3i56JKmcq2o5YtokpbdoX.TnXPFP1Mm");
-        User user2 = new User("user2", "mypassword");
+        User user1 = new User("ADMIN", "ADMIN", "ADMIN", "ADMIN", "$2a$10$H2wLImCAkegh//IezMtwSuKeTXEnTiErWJOnfgdYLXo/YxpaKzgUq");
         userRepository.save(user1);
-        userRepository.save(user2);
 
         Track track1 = new Track("Make Me Love", "www.hjksahf.com", user1);
         trackRepository.save(track1);
@@ -41,25 +39,19 @@ public class DataLoader implements ApplicationRunner {
         Track track2 = new Track("In The End", "www.hjksahf.com", user1);
         trackRepository.save(track2);
 
-        Track track3 = new Track("F for You", "www.hjksahf.com", user2);
+        Track track3 = new Track("F for You", "www.hjksahf.com", user1);
         trackRepository.save(track3);
 
 
-        Review review1 = new Review("good job", user2, track1);
+        Review review1 = new Review("good job", user1, track1);
         reviewRepository.save(review1);
 
-        Review review2 = new Review("nice", user2, track2);
+        Review review2 = new Review("nice", user1, track2);
         reviewRepository.save(review2);
 
         Review review3 = new Review("good", user1, track3);
         reviewRepository.save(review3);
 
-
-        user1.setArtistName("Andrew Calder");
-        user1.setFirstName("Andrew");
-        user1.setSecondName("Calder");
-        user1.setInterest(interestLevel.hobbyist);
-        userRepository.save(user1);
 
     }
 }

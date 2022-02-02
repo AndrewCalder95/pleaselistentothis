@@ -64,7 +64,7 @@ public class AuthController {
             return new ResponseEntity(new ApiResponse(false, "Username is already taken!"),
                     HttpStatus.BAD_REQUEST);
         }
-        User user = new User(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getPassword());
+        User user = new User(signUpRequest.getFirstName(), signUpRequest.getSecondName(), signUpRequest.getArtistName(), signUpRequest.getUsername(), signUpRequest.getPassword());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
                 .orElseThrow(() -> new AppException("User Role not set."));

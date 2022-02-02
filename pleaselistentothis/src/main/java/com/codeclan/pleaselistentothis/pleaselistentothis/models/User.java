@@ -33,12 +33,6 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "interest_level")
-    private interestLevel interest;
-
-    @Column(name = "user_rating")
-    private int userRating;
-
     @JsonIgnoreProperties({"user"})
     @OneToMany(mappedBy = "user")
     private List<Review> myReviews;
@@ -58,14 +52,12 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String secondName, String artistName, String username, String password, interestLevel interest, int userRating) {
+    public User(String firstName, String secondName, String artistName, String username, String password) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.artistName = artistName;
         this.username = username;
         this.password = password;
-        this.interest = interest;
-        this.userRating = userRating;
         this.myReviews = new ArrayList<Review>();
         this.myTracks = new ArrayList<Track>();
     }
@@ -82,6 +74,14 @@ public class User {
         this.username = username;
         this.password = password;
     }
+
+//    public User(String firstName, String secondName, String artistName, String username, String password) {
+//        this.firstName = firstName;
+//        this.secondName = secondName;
+//        this.artistName = artistName;
+//        this.username = username;
+//        this.password = password;
+//    }
 
     public String getFirstName() {
         return firstName;
@@ -123,21 +123,6 @@ public class User {
         this.password = password;
     }
 
-    public interestLevel getInterest() {
-        return interest;
-    }
-
-    public void setInterest(interestLevel interest) {
-        this.interest = interest;
-    }
-
-    public int getUserRating() {
-        return userRating;
-    }
-
-    public void setUserRating(int userRating) {
-        this.userRating = userRating;
-    }
 
     public List<Review> getMyReviews() {
         return myReviews;

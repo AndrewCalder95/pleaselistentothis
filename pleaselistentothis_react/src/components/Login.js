@@ -13,7 +13,7 @@ const Login = () => {
     try {
       await AuthService.login(username, password).then(
         () => {
-          navigate("/home");
+          navigate("/discover");
           window.location.reload();
         },
         (error) => {

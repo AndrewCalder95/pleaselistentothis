@@ -4,6 +4,9 @@ import AuthService from "./services/authService";
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Home from "./components/Home"
+import Discover from "./components/Discover"
+import UploadPage from "./components/UploadPage"
+
 
 
 function App() {
@@ -34,13 +37,20 @@ function App() {
             </Link>
           </li>
 
-          {/* {currentUser && (
-            <li className="nav-item">
-              <Link to={"/private"} className="nav-link">
-                Private
+          {currentUser && (
+            <li>
+              <Link to={"/discover"}>
+                Discover
               </Link>
             </li>
-          )} */}
+          )}
+          {currentUser && (
+            <li>
+              <Link to={"/upload"}>
+                Upload
+              </Link>
+            </li>
+          )}
         </div>
 
         {currentUser ? (
@@ -73,6 +83,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route path="/discover" element={<Discover />} />
         </Routes>
       </div>
     </div>

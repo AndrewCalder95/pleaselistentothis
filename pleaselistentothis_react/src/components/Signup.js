@@ -3,19 +3,23 @@ import AuthService from "../services/authService";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [secondName, setSecondName] = useState("");
+    const [artistName, setArtistName] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+  
 
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(username, password).then(
+      await AuthService.signup(firstName, secondName, artistName, username, password).then(
         (response) => {
-            console.log("Sign up successfully", response);
-          navigate("/home");
-        //   window.location.reload();
+            // console.log("Sign up successfully", response);
+          navigate("/login");
+          window.location.reload();
         },
         (error) => {
           console.log(error);
@@ -30,6 +34,24 @@ const Signup = () => {
     <div>
       <form onSubmit={handleSignup}>
         <h3>Sign up</h3>
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Second Name"
+          value={secondName}
+          onChange={(e) => setSecondName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Artist Name"
+          value={artistName}
+          onChange={(e) => setArtistName(e.target.value)}
+        />
         <input
           type="text"
           placeholder="username"
