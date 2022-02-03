@@ -30,7 +30,7 @@ function Discover() {
   return (
 
       <>
-      <h1>Tracks</h1>
+      <h1>Discover</h1>
       <TrackList tracks={tracks} />
     </>
   )

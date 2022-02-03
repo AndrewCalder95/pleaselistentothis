@@ -1,10 +1,7 @@
 body {
-  margin: 0;
-  background-color: #FFA1A1 ;
+  margin: 20px;
   font-family: Arial, Helvetica
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {

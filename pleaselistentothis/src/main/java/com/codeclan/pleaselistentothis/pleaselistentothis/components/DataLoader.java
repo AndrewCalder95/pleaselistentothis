@@ -30,17 +30,23 @@ public class DataLoader implements ApplicationRunner {
         Role role2 = new Role(RoleName.ROLE_ADMIN);
         roleRepository.save(role2);
 
-        User user1 = new User("ADMIN", "ADMIN", "ADMIN", "ADMIN", "$2a$10$H2wLImCAkegh//IezMtwSuKeTXEnTiErWJOnfgdYLXo/YxpaKzgUq");
+        User user1 = new User("ADMIN", "ADMIN", "Andrew Calder", "ADMIN", "$2a$10$H2wLImCAkegh//IezMtwSuKeTXEnTiErWJOnfgdYLXo/YxpaKzgUq");
         userRepository.save(user1);
 
-        Track track1 = new Track("Make Me Love", "https://soundcloud.com/andrewcaldermusic/make-me-love", user1);
+        Track track1 = new Track("Make Me Love", "https://soundcloud.com/andrewcaldermusic/make-me-love","Is this too long?", user1);
         trackRepository.save(track1);
 
-        Track track2 = new Track("In The End", "https://soundcloud.com/andrewcaldermusic/in-the-end", user1);
+        Track track2 = new Track("In The End", "https://soundcloud.com/andrewcaldermusic/in-the-end","Not sure about this one", user1);
         trackRepository.save(track2);
 
-        Track track3 = new Track("F for You", "https://soundcloud.com/disclosuremusic/f-for-you-totally-enormous-1", user1);
+        Track track3 = new Track("F for You", "https://soundcloud.com/disclosuremusic/f-for-you-totally-enormous-1", "Is there too much high end?", user1);
         trackRepository.save(track3);
+
+        Track track4 = new Track("Take Me In (Let Me Go)", "https://soundcloud.com/andrewcaldermusic/take-me-in-let-me-go","What do you think about the ending?", user1);
+        trackRepository.save(track4);
+
+        Track track5 = new Track("Do It Right", "https://soundcloud.com/andrewcaldermusic/do-it-right", "Is this too repetitive?", user1);
+        trackRepository.save(track5);
 
 
         Review review1 = new Review("good job", user1, track1);

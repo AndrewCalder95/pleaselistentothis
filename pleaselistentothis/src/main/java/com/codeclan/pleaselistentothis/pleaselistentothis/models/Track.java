@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 @Table(name="tracks")
@@ -22,6 +22,9 @@ public class Track {
     @Column(name = "url")
     private String url;
 
+    @Column(name = "comments")
+    private String comments;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnoreProperties({"tracks"})
@@ -33,9 +36,10 @@ public class Track {
     private List<Review> reviews;
 
 
-    public Track(String name, String url, User user) {
+    public Track(String name, String url, String comments, User user) {
         this.name = name;
         this.url = url;
+        this.comments = comments;
         this.user = user;
         this.reviews = new ArrayList<Review>();
     }
@@ -86,4 +90,13 @@ public class Track {
     public void addTrackReviews (Review review){
         reviews.add(review);
     }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
 }

@@ -6,6 +6,7 @@ import Login from "./components/Login"
 import Home from "./components/Home"
 import Discover from "./components/Discover"
 import UploadPage from "./components/UploadPage"
+import IndividualTrack from "./components/IndividualTrack"
 
 
 
@@ -85,6 +86,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/discover" element={<Discover />} />
+          <Route path="/track/:id" component={IndividualTrack} element={<IndividualTrack />} />
         </Routes>
       </div>
     </div>

@@ -1,25 +1,25 @@
-// const UploadPage = () =>{
+import React, {useState} from "react";
+import TrackForm from './TrackForm'
+import TrackService from "../services/trackService";
+const UploadPage = () =>{
 
-//     const [tracks, setTracks] = useState([])
+    const [tracks, setTracks] = useState([]);
 
-//     const addUrl = (submittedUrl) => {
-//     submittedUrl.id = Date.now();
-//     const updatedComments = [...comments, submittedComment];
-//     setComments(updatedComments);
-//   }
-
-
-
-
-// return (
-// <>
-// <h1> UPLOAD HERE </h1>
-//     <UrlForm onUrlSubmit = {(url) => addUrl(url)}/>
+    const createTrack = newTrack=> {
+    TrackService.addTrack(newTrack)
+    //   .then(savedTrack => setTracks([ ...tracks, savedTrack ]));
+  };
 
 
-// </>
-// )
 
-// };
 
-// export default UploadPage;
+return (
+<>
+<h1> UPLOAD HERE </h1>
+<TrackForm createTrack={createTrack}/>
+</>
+)
+
+};
+
+export default UploadPage;
