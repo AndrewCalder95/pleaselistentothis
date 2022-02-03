@@ -17,13 +17,13 @@ const TrackService =  {
     },
 
     getCurrentUserById(){
-        fetch("http://localhost:8080/currentuser", {
-       headers:{
-         Accept: 'application/json',
-                  'Content-Type': 'application/json',
-                  'Authorization': "Bearer " + userToken.accessToken,
-          },
-     })
+        return fetch("http://localhost:8080/currentuser", {
+            method: 'GET',
+            headers:{
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + userToken.accessToken}
+            })
         .then(res => res.json())
     },
 

@@ -9,7 +9,7 @@ const Track = ({ name, url, artistName, comments, id}) => {
       <h4>{artistName}: {name} </h4>
       <ReactPlayer url={url} controls = {false} height={"100px"}/>
       <h4> {comments} </h4>
-      <Link to={`/track/${id}`}>
+      <Link to={"/review"}>
                 Review this!
               </Link>
    </>

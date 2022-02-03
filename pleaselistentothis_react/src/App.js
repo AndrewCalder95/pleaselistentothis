@@ -5,16 +5,20 @@ import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Home from "./components/Home"
 import Discover from "./components/Discover"
+import MyTracks from "./components/MyTracks"
 import UploadPage from "./components/UploadPage"
 import IndividualTrack from "./components/IndividualTrack"
+import TrackService from "./services/trackService"
 
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined)
+  
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
+        
 
     if (user) {
       setCurrentUser(user);
@@ -42,6 +46,13 @@ function App() {
             <li>
               <Link to={"/discover"}>
                 Discover
+              </Link>
+            </li>
+          )}
+          {currentUser && (
+            <li>
+              <Link to={"/mytracks"}>
+                My Tracks
               </Link>
             </li>
           )}
@@ -86,6 +97,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/discover" element={<Discover />} />
+          <Route path="/mytracks" element={<MyTracks />} />
           <Route path="/track/:id" component={IndividualTrack} element={<IndividualTrack />} />
         </Routes>
       </div>

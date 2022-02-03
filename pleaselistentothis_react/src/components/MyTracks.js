@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import TrackList from "../components/TrackList";
+import MyTrackList from "../components/MyTrackList";
 import TrackService from "../services/trackService";
 import axios from "axios";
 
@@ -8,7 +8,6 @@ function Discover() {
     const [tracks, setTracks] = useState([]);
 
     const user = JSON.parse(localStorage.getItem('user'));
-    // console.log(user.accessToken)
 
 
     useEffect(() => {
@@ -32,8 +31,8 @@ function Discover() {
   return (
 
       <>
-      <h1>Discover</h1>
-      <TrackList tracks={tracks} />
+      <h1>My Tracks</h1>
+      <MyTrackList tracks={tracks} />
     </>
   )
 }

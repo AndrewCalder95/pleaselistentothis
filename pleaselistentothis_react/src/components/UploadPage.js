@@ -15,7 +15,6 @@ const UploadPage = () =>{
 
 return (
 <>
-<h1> UPLOAD HERE </h1>
 <TrackForm createTrack={createTrack}/>
 </>
 )
