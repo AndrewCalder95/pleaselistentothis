@@ -8,7 +8,7 @@ const TrackPage = ({ track }) => {
     <>
     {/* <h1> {track.user.name}: {track.name}</h1> */}
       <ReactPlayer url={track.url} controls = {false} height={"100px"}/>
-      <h4> {track.comments} </h4>
+      <h4> Here's what they've said: {track.comments} </h4>
    </>
   )
 
