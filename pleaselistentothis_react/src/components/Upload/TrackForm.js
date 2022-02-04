@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import AuthService from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 const TrackForm = ({createTrack}) => {
     
@@ -10,6 +10,8 @@ const TrackForm = ({createTrack}) => {
     const handleNameChange = (ev) => setName(ev.target.value);
     const handleCommentChange = (ev) => setComments(ev.target.value);
     const handleUrlChange = (ev) => setUrl(ev.target.value);
+
+    const navigate = useNavigate();
 
 
     const handleSubmit = ev => {
@@ -22,7 +24,9 @@ const TrackForm = ({createTrack}) => {
     setName("");
     setComments("");
     setUrl("")
+    navigate("/mytracks");
   }
+  
 
 return (
     <form onSubmit={handleSubmit}>

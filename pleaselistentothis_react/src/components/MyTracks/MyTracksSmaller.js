@@ -1,6 +1,5 @@
 import React from "react";
 import ReactPlayer from 'react-player'
-// import { Link } from "react-router-dom"
 
 const MyTracksSmaller = ({ name, url, artistName, reviews, id}) => {
 

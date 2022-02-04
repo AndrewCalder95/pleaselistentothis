@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
-import TrackList from "../components/TrackList";
-import TrackService from "../services/trackService";
-import axios from "axios";
+import TrackList from "./TrackList";
+
 
 function Discover() {
 

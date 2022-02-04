@@ -16,6 +16,18 @@ const TrackService =  {
       .then(res => res.json());
     },
 
+    addReview(review){
+        fetch("http://localhost:8080/reviews", {
+            method: 'POST',
+            body: JSON.stringify(review),
+            headers:{
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + userToken.accessToken}
+                })
+      .then(res => res.json());
+    },
+
     getCurrentUserById(){
         return fetch("http://localhost:8080/currentuser", {
             method: 'GET',

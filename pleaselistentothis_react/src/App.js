@@ -1,12 +1,13 @@
+import './App.css';
 import { useState, useEffect } from "react";
 import { Route, Routes, Link } from "react-router-dom"
 import AuthService from "./services/authService";
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Home from "./components/Home"
-import Discover from "./components/Discover"
-import MyTracks from "./components/MyTracks"
-import UploadPage from "./components/UploadPage"
+import Discover from "./components/DiscoverPage/Discover"
+import MyTracks from "./components/MyTracks/MyTracks"
+import UploadPage from './components/Upload/UploadPage';
 import IndividualTrack from "./components/IndividualTrack"
 import TrackService from "./services/trackService"
 
@@ -32,10 +33,12 @@ function App() {
 
   return (
   <>
+  <header id="header" >
     <h1> PleaseListenToThis</h1>
-    <div>
-      <nav>
-        <div>
+
+    <div id="navbar">
+      <nav >
+        <div class="navflexcontainer">
           <li>
             <Link to={"/home"}>
               Home
@@ -66,7 +69,7 @@ function App() {
         </div>
 
         {currentUser ? (
-          <div>
+          <div class="navflexcontainer">
             <li>
               <a href="/login" onClick={logOut}>
                 Logout
@@ -74,7 +77,7 @@ function App() {
             </li>
           </div>
         ) : (
-          <div>
+          <div class="navflexcontainer">
             <li>
               <Link to={"/login"}>
                 Login
@@ -89,8 +92,11 @@ function App() {
           </div>
         )}
       </nav>
+    </div>
 
-      <div>
+    </header>
+
+    <div>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -98,10 +104,10 @@ function App() {
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/mytracks" element={<MyTracks />} />
-          <Route path="/track/:id" component={IndividualTrack} element={<IndividualTrack />} />
+          <Route exact path="/track/:id" element={<IndividualTrack/>} component={<IndividualTrack/>}/> 
+          {/* <Route path="/track/:id"></Route>   */}
         </Routes>
       </div>
-    </div>
     </>
   );
 }

@@ -1,6 +1,6 @@
-import TrackService from "../services/trackService";
+import TrackService from "../../services/trackService"
 import React, { useState, useEffect } from "react";
-import Track from "./Track";
+import Track from "../DiscoverPage/Track";
 
 const TrackList = ({tracks}) => {
 
