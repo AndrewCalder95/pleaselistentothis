@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
-const CommentForm = ({createReview}) => {
+const CommentForm = ({ createReview, id }) => {
+  
     
-    const[reviewContent, setReviewContent]= useState("");
-    const[track, setTrack]= useState("");
+  const [reviewContent, setReviewContent] = useState("");
+  const [track, setTrack] = useState({ id });
+
 
 
     const handleReviewContentChange = (ev) => setReviewContent(ev.target.value);
@@ -16,7 +18,7 @@ const CommentForm = ({createReview}) => {
     const handleSubmit = ev => {
     ev.preventDefault();
     createReview({
-      reviewContent:reviewContent,
+      reviewContent: reviewContent,
       track: track
     });
     setReviewContent("");

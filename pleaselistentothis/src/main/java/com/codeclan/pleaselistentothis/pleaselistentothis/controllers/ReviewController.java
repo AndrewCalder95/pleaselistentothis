@@ -34,7 +34,7 @@ public class ReviewController {
     }
 
     @GetMapping(value = "/reviews/{id}")
-    public ResponseEntity<Optional<Review>> getUser(@PathVariable Long id){
+    public ResponseEntity<Optional<Review>> getReviewFromId(@PathVariable Long id){
         return new ResponseEntity<>(reviewRepository.findById(id), HttpStatus.OK);
     }
 
@@ -47,5 +47,5 @@ public class ReviewController {
         reviewRepository.save(review);
         return new ResponseEntity<>(review, HttpStatus.CREATED);
     }
-    
+
 }

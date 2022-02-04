@@ -36,7 +36,7 @@ const IndividualTrack = () => {
         .then(track => setTrack(track))
     }
 
-    const createReview = newReview=> {
+    const createReview = newReview => {
     TrackService.addReview(newReview)
     }
 
@@ -44,7 +44,7 @@ const IndividualTrack = () => {
 
       <>
       <TrackPage track={track} />
-      <CommentForm/>
+        <CommentForm createReview={createReview} id={id}/>
     </>
   )
 

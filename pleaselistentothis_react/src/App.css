@@ -52,11 +52,6 @@ header h1{
 
 }
 
-#navbar {
-  /* list-style-type: none; */
-
-}
-
 .navflexcontainer {
   display: flex;
 }
