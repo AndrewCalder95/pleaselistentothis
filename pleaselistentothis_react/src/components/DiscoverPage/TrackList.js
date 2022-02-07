@@ -5,13 +5,29 @@ import Track from "../DiscoverPage/Track";
 const TrackList =() => {
 
   const [reviewedTrackIds, setreviewedTrackIds] = useState([]);
+  const [displayMessage, setDisplayMessage] = useState(true);
+  const [hideMessage, setHideMessage] = useState(false);
 
   const user = JSON.parse(localStorage.getItem('user'));
 
   const userId = TrackService.getCurrentUserById().then((user) => {
-    // setCurrentId(user.id);
-   getUnReviewedTracks(user.id);
+    getUnReviewedTracks(user.id)
   });
+
+  // useEffect(() => {
+  //   checkForContent();
+  // }, [])
+  
+
+  // const checkForContent = function () {
+  //   if (reviewedTrackIds.length == 0) {
+  //     getUnReviewedTracks(user.id);
+  //   } else { 
+  //     setDisplayMessage(false)
+  //     setHideMessage(true)
+  //   }
+  // }
+
   
   const getUnReviewedTracks = function (id) {
 
@@ -29,7 +45,8 @@ const TrackList =() => {
   }
   
 
-  const filteredNodes = reviewedTrackIds.map(track => {
+  const filteredNodes = reviewedTrackIds.map(track =>
+  {
      return (
        <Track name={track.name} url={track.url} artistName = {track.user.artistName} comments = {track.comments} id = {track.id}></Track>       
        );
@@ -38,7 +55,13 @@ const TrackList =() => {
 
   return(
     <>
-      <h1>Discover</h1>
+      <h1 hidden={hideMessage}>Discover </h1>
+      <div id="notrackmessage">
+      <h2 hidden={displayMessage}> <i class="far fa-frown fa-2x"></i></h2>
+      <h2 hidden={displayMessage}> Sorry, there are no tracks to review at the moment!! </h2>
+      <h2 hidden={displayMessage}> Please check back later! </h2>
+      </div>
+      
       { filteredNodes}
     </>
   )

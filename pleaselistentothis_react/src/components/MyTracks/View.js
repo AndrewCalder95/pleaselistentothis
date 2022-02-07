@@ -30,7 +30,6 @@ const View = () => {
             .then(reviews => setReviews(reviews))
     }
     
-    console.log(reviews)
     
     return (
 

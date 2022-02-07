@@ -7,17 +7,24 @@ import ReviewableTracksList from "./ReviewableTracksList";
 const ReviewPage = () => {
 
     const [tracks, setTracks] = useState([])
+    const [currentUserId, setCurrentUserId] = useState("")
 
     const userToken = JSON.parse(localStorage.getItem('user'));
 
+    const userId = TrackService.getCurrentUserById().then((user) => {
+        setCurrentUserId(user.id)
+    });
+    
+
+
     useEffect(() => {
         getTracks()
-    }, [])
+    }, [currentUserId])
 
     let { id } = useParams();
 
     const getTracks = function () {
-        fetch(`http://localhost:8080/tracks/${id}`, {
+        fetch(`http://localhost:8080/track/discover/${id}/${currentUserId}`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',

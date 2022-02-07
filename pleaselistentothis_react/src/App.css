@@ -141,16 +141,16 @@ input {
 }
 
 #individualtrack {
-  border-style: solid;
+  /* border-style: solid;
   border-width: 5px;
   border-color: #ffd1d1;
-  background-color:rgb(255, 255, 255);
+  background-color:rgb(225, 225, 225);
   padding-top:5px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom:30px;
   margin:20px;
-  border-radius: 5px
+  border-radius: 5px */
 }
 
 #loginform {
@@ -171,6 +171,10 @@ input {
 #forminputslogin input {
   width: 300px;
   height: 20px
+}
+
+#notrackmessage {
+  text-align: center;
 }
 
 

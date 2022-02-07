@@ -1,8 +1,8 @@
-import Review from "./MyReview";
+import MyReview from "./MyReview";
 import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom'
 
-const MyReviewList = ({ reviews }) => {
+const ReviewList = ({ reviews }) => {
 
 
 
@@ -16,7 +16,7 @@ const MyReviewList = ({ reviews }) => {
      
  const filteredNodes = reviews.map(review => {
      return (
-          <Review reviewContent={review.reviewContent} user={review.user.artistName} userId={review.user.id} trackId={review.id} name = {review.name}></Review>
+          <MyReview reviewContent={review.reviewContent} user={review.user.artistName} userId={review.user.id} trackId={review.id} name = {review.name}></MyReview>
      )
  });
     
@@ -31,4 +31,4 @@ const MyReviewList = ({ reviews }) => {
 }
 
 
-export default MyReviewList
+export default ReviewList

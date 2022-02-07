@@ -29,4 +29,11 @@ public interface trackRepository extends JpaRepository <Track, Long>{
             "WHERE t.user_id != ?1 " +
             "AND t.id NOT IN ( SELECT track_id FROM reviews WHERE reviews.user_id = ?1 )", nativeQuery = true)
     List<Track> discoverPage2(long Id);
+
+    @Query(value = "SELECT t.*" +
+            "FROM tracks t " +
+            "WHERE t.user_id = ?1 " +
+            "AND t.user_id != ?2 " +
+            "AND t.id NOT IN ( SELECT track_id FROM reviews WHERE reviews.user_id = ?2 )", nativeQuery = true)
+    List<Track> reviewPage(long reviewerId, long userId);
 }
