@@ -2,6 +2,7 @@ package com.codeclan.pleaselistentothis.pleaselistentothis.controllers;
 
 
 import com.codeclan.pleaselistentothis.pleaselistentothis.models.Review;
+import com.codeclan.pleaselistentothis.pleaselistentothis.models.Track;
 import com.codeclan.pleaselistentothis.pleaselistentothis.models.User;
 import com.codeclan.pleaselistentothis.pleaselistentothis.repositories.reviewRepository;
 import com.codeclan.pleaselistentothis.pleaselistentothis.repositories.trackRepository;
@@ -26,6 +27,9 @@ public class ReviewController {
     userRepository userRepository;
 
     @Autowired
+    trackRepository trackRepository;
+
+    @Autowired
     JwtTokenProvider tokenProvider;
 
     @GetMapping(value = "/reviews")
@@ -38,6 +42,17 @@ public class ReviewController {
         return new ResponseEntity<>(reviewRepository.findById(id), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/reviews/userid")
+    public ResponseEntity<List<Review>> getReviewFromUserId(@RequestParam(name= "userId") long userId){
+        return new ResponseEntity<>(reviewRepository.findByUserId(userId), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/reviews/trackid")
+    public ResponseEntity<List<Review>> getReviewFromTrackId(@RequestParam(name= "trackId") long trackId){
+        return new ResponseEntity<>(reviewRepository.findByTrackId(trackId), HttpStatus.OK);
+    }
+
+
     @PostMapping(value = "/reviews")
     public ResponseEntity<Review> postReview(@RequestBody Review review,  @RequestHeader MultiValueMap<String, String> headers) {
         String jwtToken = headers.get("authorization").get(0).replaceAll("Bearer ", "");
@@ -47,5 +62,7 @@ public class ReviewController {
         reviewRepository.save(review);
         return new ResponseEntity<>(review, HttpStatus.CREATED);
     }
+
+
 
 }

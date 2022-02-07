@@ -46,6 +46,16 @@ public class TrackController {
         return new ResponseEntity<>(trackRepository.findById(id), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/tracks/{id}")
+    public ResponseEntity<List<Track>> getTracksByUser(@PathVariable Long id){
+        return new ResponseEntity<>(trackRepository.findByUserId(id), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/track/reviews/{id}")
+    public ResponseEntity<List<Track>> getTracksByReviewId(@PathVariable Long id){
+        return new ResponseEntity<>(trackRepository.findTrackIdByReviewsId(id), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/tracksbyuser")
     public ResponseEntity<List<Track>> getTracksByUser(@RequestHeader MultiValueMap<String, String> headers){
         //@RequestParam(name= "id") long id){

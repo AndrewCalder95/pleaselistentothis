@@ -8,14 +8,10 @@ const IndividualTrack = () => {
 
   const [track, setTrack] = useState([]);
   let { id } = useParams();
-  // const [id, setId] = useState(3);
 
   console.log({ id })
 
   
-
-
-
     const userToken = JSON.parse(localStorage.getItem('user'));
 
     useEffect(() => {

@@ -28,10 +28,11 @@ const TrackForm = ({createTrack}) => {
   }
   
 
-return (
+  return (
+  <div id = "submitform">
     <form onSubmit={handleSubmit}>
       <h1>Add a Track</h1>
-      <div>
+      <div id="forminputs">
         <label htmlFor="name">Name:</label>
         <input 
           type="text" 
@@ -42,7 +43,7 @@ return (
           onChange={handleNameChange}
         />
       </div>
-      <div>
+      <div id="forminputs">
         <label htmlFor="comments">Comments:</label>
         <input 
           type="text" 
@@ -53,7 +54,7 @@ return (
           onChange={handleCommentChange}
         />
       </div>
-      <div>
+      <div id="forminputs">
         <label htmlFor="url">Url:</label>
         <input 
           type="text" 
@@ -67,8 +68,9 @@ return (
 
       
 
-      <input type="submit" name="submit" value="Save" />
-    </form>
+      <input type="submit" name="submit" value="Save" class="inputbutton"/>
+      </form>
+      </div>
   )
 };
 

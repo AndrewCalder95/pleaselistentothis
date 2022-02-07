@@ -41,22 +41,91 @@
 
 header {
   background-color:#FF8484;
-  padding: 20px;
-  font-family: monospace;
-  color: white;
+  padding: 10px;
+  font-family: 'Quicksand', sans-serif;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
 header h1{
-  font-size: 30px;
+  font-size: 40px;
 
 }
 
 .navflexcontainer {
   display: flex;
+  gap: 20px;
+  list-style: none;
+  justify-content: flex-start;
+}
+
+.navflexcontainer2 {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  justify-content:flex-end;
 }
 
 body {
-  font-family: monospace;
+  font-family: 'Quicksand', sans-serif;
+  margin: 0px;
+  background-color: #ffbdbd;
 }
+
+
+
+.reviewForm {
+  width:600px;
+  height: 100px
+
+}
+
+button {
+  background-color: #FF8484;
+  font-family: 'Quicksand', sans-serif;
+  font-style: italic;
+  border-radius: 10%;
+}
+
+.inputbutton {
+  background-color: #FF8484;
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 10%;
+  border-style:ridge;
+}
+
+input {
+  /* background-color: #ffecec; */
+  font-family: 'Quicksand', sans-serif;
+}
+
+#submitform {
+  display:flex;
+  justify-content: center;
+  /* background-color: #dfdfdf; */
+  padding: 20px;
+  margin: 10px;
+  /* border-style: solid; */
+  /* border-radius: 100px; */
+}
+
+#forminputs {
+  padding: 10px;
+  justify-content: center;
+}
+
+#mainbody {
+  margin: 100px
+}
+
+#individualtrack {
+  border-style: solid;
+  border-color: #FF8484;
+  background-color:rgb(255, 245, 245);
+  padding: 10px;
+  padding-bottom:30px;
+  margin:20px;
+  border-radius: 2px
+}
+
 

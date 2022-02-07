@@ -1,38 +1,26 @@
-import React, {useState, useEffect} from "react";
-import MyTrackList from "../../components/MyTracks/MyTrackList"
+import React from "react";
+import {useState, useEffect} from "react";
+import ReactPlayer from 'react-player'
+import { Link } from "react-router-dom"
+import TrackService from "../../services/trackService";
+import View from "./View";
 
-function Discover() {
+const MyTracks= ({ name, url, artistName, id }) => {
+   
+  // console.log(reviews)
 
-    const [tracks, setTracks] = useState([]);
-
-    const user = JSON.parse(localStorage.getItem('user'));
-
-
-    useEffect(() => {
-      getTracks();
-    }, [])
-
-    const getTracks = function(){
-
-    fetch("http://localhost:8080/tracks", {
-       headers:{
-         Accept: 'application/json',
-                  'Content-Type': 'application/json',
-                  'Authorization': "Bearer " + user.accessToken,
-          },
-     })
-        .then(res => res.json())
-        .then(tracks => setTracks(tracks))
-    }
-
-
-  return (
-
-      <>
-      <h1>My Tracks</h1>
-      <MyTrackList tracks={tracks} />
-    </>
+  return(
+    <>
+      <div id = "individualtrack">
+      <h4>{name} </h4>
+      <ReactPlayer url={url} controls = {false} height={"150px"} width={""}/>      {/* <h4> {reviews} </h4> */}
+      <Link to={`/view/${id}`}>
+                See if you have any reviewers!
+        </Link>
+        </div>
+   </>
   )
+
 }
 
-export default Discover;
+export default MyTracks;

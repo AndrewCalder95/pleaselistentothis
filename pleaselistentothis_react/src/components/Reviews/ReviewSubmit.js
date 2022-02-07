@@ -3,14 +3,13 @@ import { useNavigate, Link } from "react-router-dom";
 
 
 
-const CommentForm = ({ createReview, id }) => {
+const ReviewSubmit = ({ createReview, id }) => {
   
     
   const [reviewContent, setReviewContent] = useState("");
   const [track, setTrack] = useState({ id });
   const [disable, setDisable] = useState(false);
   const [enable, setEnable] = useState(true);
-  
 
 
 
@@ -48,13 +47,12 @@ return (
           onChange={handleReviewContentChange}
         />
       </div>
-      <input type="submit" name="myButton" value="Post" />
+      <input type="submit" name="submit" value="Post" />
     </div>
     <div hidden={enable}>
       <h1>Thank you!</h1>
-      <h4>We'll let you know when they review your track!</h4>
-      <Link to={"/discover"}>
-                In the meantime, how about reviewing another track?
+      <Link to={"/displayreview/${id}"}>
+      Click here to see what they said about your track!   
               </Link>
       
       </div>
@@ -62,4 +60,4 @@ return (
   )
 };
 
-export default CommentForm;
+export default ReviewSubmit;

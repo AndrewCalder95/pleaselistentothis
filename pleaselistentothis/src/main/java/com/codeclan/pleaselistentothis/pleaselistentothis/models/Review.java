@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="reviews")
@@ -14,6 +15,14 @@ public class Review {
     private Long id;
     @Column(name = "reviewContent")
     private String reviewContent;
+
+//    @Column(name = "handshake")
+//    private Boolean handshake;
+
+//    @ManyToOne
+//    @JoinColumn(name = "reviewer_track_id")
+////    @JsonIgnoreProperties({"reviews"})
+//    private Track reviewerTrack;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -27,11 +36,15 @@ public class Review {
     private Track track;
 
 
+
     public Review(String reviewContent, User user, Track track) {
         this.reviewContent = reviewContent;
         this.user = user;
+//        this.reviewerTrack = reviewerTrack;
         this.track = track;
+//        this.handshake = false;
     }
+
 
     public Review() {
     }

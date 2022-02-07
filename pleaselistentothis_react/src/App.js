@@ -6,10 +6,12 @@ import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Home from "./components/Home"
 import Discover from "./components/DiscoverPage/Discover"
-import MyTracks from "./components/MyTracks/MyTracks"
+import MyTracks from "./components/MyTracks/MyTracksPage"
 import UploadPage from './components/Upload/UploadPage';
 import IndividualTrack from "./components/IndividualTrack"
-import TrackService from "./services/trackService"
+import View from "./components/MyTracks/View"
+import ReviewPage from './components/Reviews/ReviewPage';
+import ActualReview from './components/Reviews/ActualReview';
 
 
 
@@ -34,13 +36,14 @@ function App() {
   return (
   <>
   <header id="header" >
-    <h1> PleaseListenToThis</h1>
+        {/* <img src="/img/listentothis_logo.png" alt="logo" height ="120px"/> */}
+        <h1 id ="main title">ListenToThis <i class="fas fa-headphones-alt fa-1x"></i></h1>
 
-    <div id="navbar">
-      <nav >
+    <div>
+      <nav>
         <div class="navflexcontainer">
           <li>
-            <Link to={"/home"}>
+            <Link to={"/"}>
               Home
             </Link>
           </li>
@@ -59,6 +62,13 @@ function App() {
               </Link>
             </li>
           )}
+          {/* {currentUser && (
+            <li>
+              <Link to={"/myreviews"}>
+                My Reviews
+              </Link>
+            </li>
+          )} */}
           {currentUser && (
             <li>
               <Link to={"/upload"}>
@@ -69,7 +79,7 @@ function App() {
         </div>
 
         {currentUser ? (
-          <div class="navflexcontainer">
+          <div class="navflexcontainer2">
             <li>
               <a href="/login" onClick={logOut}>
                 Logout
@@ -77,7 +87,7 @@ function App() {
             </li>
           </div>
         ) : (
-          <div class="navflexcontainer">
+          <div class="navflexcontainer2">
             <li>
               <Link to={"/login"}>
                 Login
@@ -96,15 +106,19 @@ function App() {
 
     </header>
 
-    <div>
+    <div id ="mainbody">
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/mytracks" element={<MyTracks />} />
           <Route exact path="/track/:id" element={<IndividualTrack/>} component={<IndividualTrack/>}/> 
+          <Route exact path="/reviewed/track/:id" element={<ActualReview/>} component={<ActualReview/>}/> 
+          <Route exact path="/track/:id" element={<IndividualTrack/>} component={<IndividualTrack/>}/> 
+          <Route exact path="/view/:id" element={<View/>} component={<View/>}/> 
+          <Route exact path="/review/:id" element={<ReviewPage/>} component={<ReviewPage/>}/> 
           {/* <Route path="/track/:id"></Route>   */}
         </Routes>
       </div>

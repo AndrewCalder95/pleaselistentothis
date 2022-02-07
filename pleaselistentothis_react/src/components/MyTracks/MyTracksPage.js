@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
-import TrackList from "./TrackList";
+import MyTrackList from "./MyTrackList"
 
-
-function Discover() {
+function MyTracksPage() {
 
     const [tracks, setTracks] = useState([]);
 
     const user = JSON.parse(localStorage.getItem('user'));
+
 
     useEffect(() => {
       getTracks();
@@ -29,10 +29,10 @@ function Discover() {
   return (
 
       <>
-      <h1>Discover</h1>
-      <TrackList tracks={tracks} />
+      <h1>My Tracks</h1>
+      <MyTrackList tracks={tracks} />
     </>
   )
 }
 
-export default Discover;
+export default MyTracksPage;

@@ -2,7 +2,7 @@ import React from "react";
 import ReactPlayer from 'react-player'
 import { Link } from "react-router-dom"
 
-const TrackPage = ({ track }) => {
+const MusicPlayer = ({ track }) => {
 
   return(
     <>
@@ -17,4 +17,4 @@ const TrackPage = ({ track }) => {
 
 }
 
-export default TrackPage;
+export default MusicPlayer;

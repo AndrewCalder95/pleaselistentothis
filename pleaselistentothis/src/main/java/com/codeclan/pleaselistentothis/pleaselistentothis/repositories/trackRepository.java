@@ -11,4 +11,6 @@ import java.util.List;
 public interface trackRepository extends JpaRepository <Track, Long>{
 
     List<Track> findByUserId(long id);
+
+    List<Track> findTrackIdByReviewsId(long id);
 }

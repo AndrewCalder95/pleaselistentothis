@@ -25,15 +25,17 @@ public class Track {
     @Column(name = "comments")
     private String comments;
 
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnoreProperties({"tracks"})
     private User user;
 
     @JsonBackReference
-    @JsonIgnoreProperties({"track"})
+    @JsonIgnoreProperties({"tracks"})
     @OneToMany(mappedBy = "track")
     private List<Review> reviews;
+
 
 
     public Track(String name, String url, String comments, User user) {
@@ -42,6 +44,7 @@ public class Track {
         this.comments = comments;
         this.user = user;
         this.reviews = new ArrayList<Review>();
+
     }
 
     public Track() {
@@ -87,9 +90,9 @@ public class Track {
         this.id = id;
     }
 
-    public void addTrackReviews (Review review){
-        reviews.add(review);
-    }
+//    public void addTrackReviews (Review review){
+//        reviews.add(review);
+//    }
 
     public String getComments() {
         return comments;

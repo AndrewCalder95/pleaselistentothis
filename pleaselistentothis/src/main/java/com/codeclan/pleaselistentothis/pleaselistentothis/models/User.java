@@ -33,6 +33,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
+
     @JsonIgnoreProperties({"user"})
     @OneToMany(mappedBy = "user")
     private List<Review> myReviews;
@@ -61,8 +62,7 @@ public class User {
         this.myReviews = new ArrayList<Review>();
         this.myTracks = new ArrayList<Track>();
     }
-//
-//
+
 //    basic login
     public User(String username, String password) {
         this.username = username;
