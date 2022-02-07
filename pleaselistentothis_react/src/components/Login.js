@@ -29,7 +29,8 @@ const Login = () => {
     <div>
       <form onSubmit={handleLogin}>
         <h3>Login</h3>
-        <div>
+        <div id="loginform">
+          <div id ="forminputslogin">
         <label>Username:</label>
         <input
           type="text"
@@ -38,16 +39,17 @@ const Login = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
         </div>
-        <div>
-        <label>Password:</label>
+        <div id ="forminputslogin">
+        <label>Password: </label>
         <input
           type="password"
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        </div>
-        <button type="submit">Log in</button>
+          </div>
+          <button type="submit">Log in</button>
+          </div>
       </form>
     </div>
   );

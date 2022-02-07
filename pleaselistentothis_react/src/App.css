@@ -59,6 +59,7 @@ header h1{
   justify-content: flex-start;
 }
 
+
 .navflexcontainer2 {
   display: flex;
   gap: 20px;
@@ -70,6 +71,10 @@ body {
   font-family: 'Quicksand', sans-serif;
   margin: 0px;
   background-color: #ffbdbd;
+}
+
+a:hover{
+  color: rgb(255, 83, 83);
 }
 
 
@@ -85,6 +90,14 @@ button {
   font-family: 'Quicksand', sans-serif;
   font-style: italic;
   border-radius: 10%;
+}
+
+
+button:hover {
+  background-color: rgb(255, 83, 83);
+}
+.inputbutton:hover {
+  background-color: rgb(255, 83, 83);
 }
 
 .inputbutton {
@@ -114,18 +127,51 @@ input {
   justify-content: center;
 }
 
+#forminputs input {
+  width: 1000px;
+  height: 20px
+}
+
+#forminputscomments input {
+  height: 300px
+}
+
 #mainbody {
-  margin: 100px
+  margin: 50px
 }
 
 #individualtrack {
   border-style: solid;
-  border-color: #FF8484;
+  border-width: 5px;
+  border-color: #ffd1d1;
+  background-color:rgb(255, 255, 255);
+  padding-top:5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom:30px;
+  margin:20px;
+  border-radius: 5px
+}
+
+#loginform {
   background-color:rgb(255, 245, 245);
+  border-style: solid;
+  border-color: #FF8484;
   padding: 10px;
   padding-bottom:30px;
   margin:20px;
-  border-radius: 2px
+  border-radius: 10px
 }
+
+#forminputslogin {
+  padding: 10px;
+  justify-content: center;
+}
+
+#forminputslogin input {
+  width: 300px;
+  height: 20px
+}
+
 
 

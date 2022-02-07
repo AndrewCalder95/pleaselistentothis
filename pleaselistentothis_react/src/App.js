@@ -5,7 +5,7 @@ import AuthService from "./services/authService";
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Home from "./components/Home"
-import Discover from "./components/DiscoverPage/Discover"
+import TrackList from "./components/DiscoverPage/TrackList"
 import MyTracks from "./components/MyTracks/MyTracksPage"
 import UploadPage from './components/Upload/UploadPage';
 import IndividualTrack from "./components/IndividualTrack"
@@ -112,7 +112,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/upload" element={<UploadPage />} />
-          <Route path="/discover" element={<Discover />} />
+          <Route path="/discover" element={<TrackList />} />
           <Route path="/mytracks" element={<MyTracks />} />
           <Route exact path="/track/:id" element={<IndividualTrack/>} component={<IndividualTrack/>}/> 
           <Route exact path="/reviewed/track/:id" element={<ActualReview/>} component={<ActualReview/>}/> 

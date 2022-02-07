@@ -52,8 +52,13 @@ public class TrackController {
     }
 
     @GetMapping(value = "/track/reviews/{id}")
-    public ResponseEntity<List<Track>> getTracksByReviewId(@PathVariable Long id){
-        return new ResponseEntity<>(trackRepository.findTrackIdByReviewsId(id), HttpStatus.OK);
+    public ResponseEntity<List<Track>> getTracksByReviewId(@PathVariable Long Id){
+        return new ResponseEntity<>(trackRepository.findTrackIdByReviewsId(Id), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/track/discover/{id}")
+    public ResponseEntity<List<Track>> discoverPage(@PathVariable Long id){
+        return new ResponseEntity<>(trackRepository.discoverPage2(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/tracksbyuser")
