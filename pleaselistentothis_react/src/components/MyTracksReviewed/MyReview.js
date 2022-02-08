@@ -27,10 +27,6 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
         setShowReviewableTracks(true)
         setHideSwitch(true)
     }
-    const handleSeeReviewPage = (ev) => {
-        setShowReviewableTracks(false)
-        setShowReviewPage(true)
-    }
 
     const getTracks = function () {
         fetch(`http://localhost:8080/tracks/${userId}`, {
@@ -60,7 +56,7 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
       <>
           <div>
               <h2 hidden={hideSwitch} >{user}</h2>
-              <button hidden={hideSwitch} onClick={handleSeeReviewableTracksClick}>Pick one of their tracks to review to see what they've said about yours!</button>
+              <a hidden={hideSwitch} onClick={handleSeeReviewableTracksClick}>Click here to pick one of their tracks to review to see what they've said about yours!</a>
               {showReviewableTracks ?
                   <ReviewPage id={userId} reviewContent = {reviewContent}/>
                   : null}

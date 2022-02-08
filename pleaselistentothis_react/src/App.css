@@ -40,7 +40,8 @@
 }
 
 header {
-  background-color:#FF8484;
+  /* background-color:#FF8484; */
+  background-color:#42abc2;
   padding: 10px;
   font-family: 'Quicksand', sans-serif;
   color: rgb(255, 255, 255);
@@ -70,11 +71,14 @@ header h1{
 body {
   font-family: 'Quicksand', sans-serif;
   margin: 0px;
-  background-color: #ffbdbd;
+  /* background-color: #ffbdbd; */
+  background-color: #c0f3ff;
 }
 
 a:hover{
-  color: rgb(255, 83, 83);
+  /* color: rgb(255, 83, 83); */
+  color: rgb(62, 120, 156);
+  cursor:pointer;
 }
 
 
@@ -87,24 +91,30 @@ a:hover{
 
 button {
   background-color: #FF8484;
+  background-color: #42abc2;
   font-family: 'Quicksand', sans-serif;
-  font-style: italic;
+  font-size: larger;
   border-radius: 10%;
 }
 
 
 button:hover {
-  background-color: rgb(255, 83, 83);
+  /* background-color: rgb(255, 83, 83); */
+  background-color: rgb(62, 120, 156);
+  cursor:pointer;
 }
 .inputbutton:hover {
-  background-color: rgb(255, 83, 83);
+  /* background-color: rgb(255, 83, 83); */
+  background-color: rgb(62, 120, 156);
+  cursor:pointer;
 }
 
 .inputbutton {
-  background-color: #FF8484;
+  /* background-color: #FF8484; */
+  background-color: #42abc2;
   font-family: 'Quicksand', sans-serif;
   border-radius: 10%;
-  border-style:ridge;
+  font-size: larger;
 }
 
 input {
@@ -153,9 +163,11 @@ input {
 }
 
 #loginform {
-  background-color:rgb(255, 245, 245);
+  /* background-color:rgb(255, 245, 245); */
+  background-color:rgb(245, 253, 255);
   border-style: solid;
-  border-color: #FF8484;
+  /* border-color: #FF8484; */
+  border-color: #42abc2;
   padding: 10px;
   padding-bottom:30px;
   margin:20px;

@@ -54,14 +54,14 @@ public class DataLoader implements ApplicationRunner {
 //        trackRepository.save(track5);
 
 
-        Review review1 = new Review("good job", user1, track2);
-        reviewRepository.save(review1);
-
-        Review review2 = new Review("nice",  user2, track3);
-        reviewRepository.save(review2);
-
-        Review review3 = new Review("good", user3, track1);
-        reviewRepository.save(review3);
+//        Review review1 = new Review("good job", user1, track2);
+//        reviewRepository.save(review1);
+//
+//        Review review2 = new Review("nice",  user2, track3);
+//        reviewRepository.save(review2);
+//
+//        Review review3 = new Review("good", user3, track1);
+//        reviewRepository.save(review3);
 
 
     }

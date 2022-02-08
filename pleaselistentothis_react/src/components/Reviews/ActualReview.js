@@ -10,7 +10,6 @@ const ActualReview = ({id, reviewContent}) => {
   
     
     const [track, setTrack] = useState([]);
-    // let { id } = useParams();
   
     console.log({ id })
   

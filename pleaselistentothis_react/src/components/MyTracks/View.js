@@ -15,8 +15,6 @@ const View = () => {
         getReviewsByTrackId()
     }, [])
 
-    console.log("VIEW" + id)
-
 
     const getReviewsByTrackId = function () {
         fetch(`http://localhost:8080/reviews/trackid?trackId=${id}`, {
@@ -29,8 +27,7 @@ const View = () => {
             .then(res => res.json())
             .then(reviews => setReviews(reviews))
     }
-    
-    
+
     return (
 
         <>
