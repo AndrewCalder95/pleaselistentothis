@@ -75,9 +75,14 @@ body {
   background-color: #c0f3ff;
 }
 
-a:hover{
+a:visited { 
+  /* text-decoration: none;  */
+  color: rgb(0, 0, 0); 
+ }
+
+ a:hover{
   /* color: rgb(255, 83, 83); */
-  color: rgb(62, 120, 156);
+  color: rgb(105, 146, 172);
   cursor:pointer;
 }
 
@@ -93,7 +98,7 @@ button {
   background-color: #FF8484;
   background-color: #42abc2;
   font-family: 'Quicksand', sans-serif;
-  font-size: larger;
+  font-size: large;
   border-radius: 10%;
 }
 
@@ -114,7 +119,7 @@ button:hover {
   background-color: #42abc2;
   font-family: 'Quicksand', sans-serif;
   border-radius: 10%;
-  font-size: larger;
+  font-size: large;
 }
 
 input {
