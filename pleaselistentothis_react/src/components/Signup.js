@@ -32,10 +32,11 @@ const Signup = () => {
 
   return (
     <div>
-      <form onSubmit={handleSignup}>
-        <h3>Sign up</h3>
-        <div>
-        <label>First Name:</label>
+      <form id="signupformcontainer" onSubmit={handleSignup}>
+        <div id ="signupform">
+        <div id ="forminputslogin">
+          <label>First Name:</label>
+          <br/>
         <input
           type="text"
           placeholder="Optional"
@@ -43,8 +44,9 @@ const Signup = () => {
           onChange={(e) => setFirstName(e.target.value)}
         />
           </div>
-        <div>
-        <label>Second Name:</label>
+        <div id ="forminputslogin">
+          <label>Second Name:</label>
+          <br/>
         <input
           type="text"
           placeholder="Optional"
@@ -52,8 +54,9 @@ const Signup = () => {
           onChange={(e) => setSecondName(e.target.value)}
         />
           </div>
-        <div>
-        <label>Artist Name:</label>
+        <div id ="forminputslogin">
+          <label>Artist/Band Name:</label>
+          <br/>
         <input
           type="text"
           placeholder="Required"
@@ -62,8 +65,9 @@ const Signup = () => {
           onChange={(e) => setArtistName(e.target.value)}
         />
           </div>
-        <div>
-        <label>Username:</label>
+        <div id ="forminputslogin">
+          <label>Username:</label>
+          <br/>
         <input
           type="text"
           placeholder="Required"
@@ -71,8 +75,9 @@ const Signup = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
           </div>
-        <div>
-        <label>Password:</label>
+        <div id ="forminputslogin">
+          <label>Password:</label>
+          <br/>
         <input
           type="password"
           placeholder="Required"
@@ -80,7 +85,9 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         </div>
-        <button type="submit">Sign up</button>
+        <br/>
+          <button type="submit">Sign up</button>
+          </div>
       </form>
     </div>
   );

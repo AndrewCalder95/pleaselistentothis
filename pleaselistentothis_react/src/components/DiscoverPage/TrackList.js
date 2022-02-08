@@ -10,9 +10,6 @@ const TrackList =() => {
 
   const user = JSON.parse(localStorage.getItem('user'));
 
-  // const userId = TrackService.getCurrentUserById().then((user) => {
-  //   getUnReviewedTracks(user.id)
-  // });
 
   useEffect(() => {
     TrackService.getCurrentUserById().then((user) => {
@@ -20,10 +17,6 @@ const TrackList =() => {
     });
   }, [])
 
-  // useEffect(() => {
-  //   checkForContent();
-  // }, [])
-  
 
   const checkForContent = function () {
     if (reviewedTrackIds.length == 0) {
@@ -45,14 +38,11 @@ const TrackList =() => {
       .then(res => res.json())
       .then(reviewedTracks => {
         setreviewedTrackIds(reviewedTracks)
-        // if reviewd tracks is 0
         if (reviewedTracks.length == 0) {
           setDisplayMessage(false)
           setHideMessage(true)
         }
         console.log(reviewedTrackIds.length)
-        // display message
-        // 
       })
   }
   

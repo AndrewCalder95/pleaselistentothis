@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import ReviewableTracksList from "./ReviewableTracksList";
 
 
-const ReviewPage = ({id, reviewContent}) => {
+const ReviewPage = ({id, reviewContent, user, setAsViewed}) => {
 
     const [tracks, setTracks] = useState([])
     const [currentUserId, setCurrentUserId] = useState("")
@@ -19,7 +19,7 @@ const ReviewPage = ({id, reviewContent}) => {
         getTracks()
     }, [currentUserId])
 
-    // let { id } = useParams();
+
 
     const getTracks = function () {
         fetch(`http://localhost:8080/track/discover/${id}/${currentUserId}`, {
@@ -36,8 +36,7 @@ const ReviewPage = ({id, reviewContent}) => {
         
         return (
             <>
-                
-                <ReviewableTracksList tracks = {tracks} reviewContent ={reviewContent}/>
+                <ReviewableTracksList tracks={tracks} reviewContent={reviewContent}/>
             </>
         )
     

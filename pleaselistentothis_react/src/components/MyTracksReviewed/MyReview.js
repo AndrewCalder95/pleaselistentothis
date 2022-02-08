@@ -12,6 +12,7 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
     const [reviewedTrack, setReviewedTrack] = useState([])
     const [showReviewPage, setShowReviewPage] = useState(true)
     const [showReviewableTracks, setShowReviewableTracks] = useState(false)
+    const [alreadyReviewed, setAlreadyReviewed] = useState(true)
 
     const userToken = JSON.parse(localStorage.getItem('user'));
 
@@ -27,6 +28,12 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
         setShowReviewableTracks(true)
         setHideSwitch(true)
     }
+
+    // const handleAlreadyReviewed = () => {
+    //     setAlreadyReviewed(false)
+    // }
+
+  
 
     const getTracks = function () {
         fetch(`http://localhost:8080/tracks/${userId}`, {
@@ -54,18 +61,15 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
 
   return(
       <>
+          
           <div>
               <h2 hidden={hideSwitch} >{user}</h2>
               <a hidden={hideSwitch} onClick={handleSeeReviewableTracksClick}>Click here to pick one of their tracks to review to see what they've said about yours!</a>
               {showReviewableTracks ?
-                  <ReviewPage id={userId} reviewContent = {reviewContent}/>
+                      <ReviewPage user={user} id={userId} reviewContent={reviewContent}/>
                   : null}
-              {/* {showReviewPage ?
-                  <ActualReview />
-                  : null} */}
-          </div>
-          {/* <ReviewPage id={userId} /> */}
-
+              </div>
+          
    </>
   )
 

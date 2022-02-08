@@ -19,7 +19,7 @@ const ReviewableTracks = ({ url, trackName, artistName, id, reviewContent}) => {
         <div hidden={hideSwitch}>
         <h4>{artistName}: {trackName} </h4>
         <ReactPlayer url={url} controls={false} height={"150px"} width={""} />
-          <button onClick={handleShowReviewPage}> Review this one!</button>
+          <a onClick={handleShowReviewPage}> Review this one!</a>
           </div>
         {showReviewPage ?
           <ActualReview id={id} reviewContent={reviewContent}/>
