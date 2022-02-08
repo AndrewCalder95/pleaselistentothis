@@ -38,8 +38,8 @@ const Signup = () => {
         <label>First Name:</label>
         <input
           type="text"
-          placeholder="First Name"
-          value={firstName}
+          placeholder="Optional"
+            value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
           </div>
@@ -47,7 +47,7 @@ const Signup = () => {
         <label>Second Name:</label>
         <input
           type="text"
-          placeholder="Second Name"
+          placeholder="Optional"
           value={secondName}
           onChange={(e) => setSecondName(e.target.value)}
         />
@@ -56,8 +56,9 @@ const Signup = () => {
         <label>Artist Name:</label>
         <input
           type="text"
-          placeholder="Artist Name"
-          value={artistName}
+          placeholder="Required"
+            value={artistName}
+            required
           onChange={(e) => setArtistName(e.target.value)}
         />
           </div>
@@ -65,7 +66,7 @@ const Signup = () => {
         <label>Username:</label>
         <input
           type="text"
-          placeholder="username"
+          placeholder="Required"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -74,7 +75,7 @@ const Signup = () => {
         <label>Password:</label>
         <input
           type="password"
-          placeholder="password"
+          placeholder="Required"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

@@ -10,6 +10,7 @@ const DisplayReview = ({ reviewContent, userId, trackId, user }) => {
     
     const [tracks, setTracks] = useState([])
     const [hideSwitch, setHideSwitch] = useState(true);
+    const [review, setReview] = useState({reviewContent})
 
     const userToken = JSON.parse(localStorage.getItem('user'));
 
@@ -31,15 +32,18 @@ const DisplayReview = ({ reviewContent, userId, trackId, user }) => {
             .then(tracks => setTracks(tracks))
     }
 
+    console.log(review)
+
   return(
       <>
           <div>
-              {/* <button onClick={handleClick}></button> */}
+              <button onClick={handleClick}></button>
               <h2>{user}</h2>
-          {/* <h2 hidden={hideSwitch}> {reviewContent}</h2> */}
-      <Link to={`/review/${userId}`}>
+          <h2 hidden={hideSwitch}> {reviewContent}</h2>
+      {/* <Link to={`/review/${userId}`}>
                 Review them!
-              </Link>
+              </Link> */}
+              <TheReview reviewContent={reviewContent} />
 
               </div>
    </>

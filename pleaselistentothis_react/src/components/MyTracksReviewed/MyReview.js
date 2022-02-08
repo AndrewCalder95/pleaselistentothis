@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from "react";
 import { Link, useParams} from "react-router-dom"
 import ReactPlayer from 'react-player'
-
+import ReviewPage from "../Reviews/ReviewPage";
+import ActualReview from "../Reviews/ActualReview";
 
 const MyReview = ({ reviewContent, userId, trackId, user }) => {
-    
 
     let { id } = useParams();
-
-    
     const [tracks, setTracks] = useState([])
-    const [hideSwitch, setHideSwitch] = useState(true);
+    const [hideSwitch, setHideSwitch] = useState("");
     const [reviewedTrack, setReviewedTrack] = useState([])
+    const [showReviewPage, setShowReviewPage] = useState(true)
+    const [showReviewableTracks, setShowReviewableTracks] = useState(false)
 
     const userToken = JSON.parse(localStorage.getItem('user'));
 
@@ -21,9 +21,16 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
 
     useEffect(() => {
         getReviewedTrack()
-}, [])
-
-    const handleClick = (ev) => { setHideSwitch(false) }
+    }, [])
+    
+    const handleSeeReviewableTracksClick = (ev) => {
+        setShowReviewableTracks(true)
+        setHideSwitch(true)
+    }
+    const handleSeeReviewPage = (ev) => {
+        setShowReviewableTracks(false)
+        setShowReviewPage(true)
+    }
 
     const getTracks = function () {
         fetch(`http://localhost:8080/tracks/${userId}`, {
@@ -48,23 +55,21 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
             .then(res => res.json())
             .then(reviewedTrack => setReviewedTrack(reviewedTrack[0].name))
     }
-    
-    console.log(reviewedTrack)
-
 
   return(
       <>
           <div>
-              
-            {/* <h1> Your reviewers for {reviewedTrack}!</h1> */}
+              <h2 hidden={hideSwitch} >{user}</h2>
+              <button hidden={hideSwitch} onClick={handleSeeReviewableTracksClick}>Pick one of their tracks to review to see what they've said about yours!</button>
+              {showReviewableTracks ?
+                  <ReviewPage id={userId} reviewContent = {reviewContent}/>
+                  : null}
+              {/* {showReviewPage ?
+                  <ActualReview />
+                  : null} */}
+          </div>
+          {/* <ReviewPage id={userId} /> */}
 
-              <h2>{user}</h2>
-              {/* <h2 hidden={hideSwitch}> {reviewContent}</h2> */}
-              <Link to={`/review/${userId}`}>
-                Pick one of their tracks to review!
-              </Link>
-
-              </div>
    </>
   )
 

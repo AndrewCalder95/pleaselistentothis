@@ -6,11 +6,11 @@ import TrackService from "../../services/trackService";
 
 
 
-const ActualReview = () => {
+const ActualReview = ({id, reviewContent}) => {
   
     
     const [track, setTrack] = useState([]);
-    let { id } = useParams();
+    // let { id } = useParams();
   
     console.log({ id })
   
@@ -42,9 +42,9 @@ const ActualReview = () => {
       return (
 
         <>
-        <MusicPlayer track={track} />
-          <ReviewSubmit createReview={createReview} id={id}/>
-      </>
+          <ReviewSubmit trackList={track} createReview={createReview} id={id} reviewContentFromReviewer={reviewContent}/>
+          
+        </>
     )
 };
 

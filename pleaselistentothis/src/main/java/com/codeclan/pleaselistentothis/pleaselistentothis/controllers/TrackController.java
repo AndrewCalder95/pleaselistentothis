@@ -1,7 +1,6 @@
 package com.codeclan.pleaselistentothis.pleaselistentothis.controllers;
 
 
-import com.codeclan.pleaselistentothis.pleaselistentothis.models.Review;
 import com.codeclan.pleaselistentothis.pleaselistentothis.models.Track;
 import com.codeclan.pleaselistentothis.pleaselistentothis.models.User;
 import com.codeclan.pleaselistentothis.pleaselistentothis.repositories.userRepository;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 public class TrackController {

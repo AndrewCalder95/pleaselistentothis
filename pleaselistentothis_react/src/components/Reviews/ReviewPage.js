@@ -1,10 +1,10 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useLocation } from "react-router-dom"
 import TrackService from "../../services/trackService";
 import React, { useState, useEffect } from "react";
 import ReviewableTracksList from "./ReviewableTracksList";
 
 
-const ReviewPage = () => {
+const ReviewPage = ({id, reviewContent}) => {
 
     const [tracks, setTracks] = useState([])
     const [currentUserId, setCurrentUserId] = useState("")
@@ -14,14 +14,12 @@ const ReviewPage = () => {
     const userId = TrackService.getCurrentUserById().then((user) => {
         setCurrentUserId(user.id)
     });
-    
-
 
     useEffect(() => {
         getTracks()
     }, [currentUserId])
 
-    let { id } = useParams();
+    // let { id } = useParams();
 
     const getTracks = function () {
         fetch(`http://localhost:8080/track/discover/${id}/${currentUserId}`, {
@@ -36,12 +34,10 @@ const ReviewPage = () => {
         
     }
         
-        console.log(tracks)
-
-
         return (
             <>
-                <ReviewableTracksList tracks = {tracks}/>
+                
+                <ReviewableTracksList tracks = {tracks} reviewContent ={reviewContent}/>
             </>
         )
     

@@ -1,18 +1,15 @@
 import MyReview from "./MyReview";
 import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom'
+import ReviewableTracks from "../Reviews/ReviewableTracks";
 
 const ReviewList = ({ reviews }) => {
 
-
+    const [showUserTracks, setShowUserTracks] = useState(false)
 
     const userToken = JSON.parse(localStorage.getItem('user'));
 
-
-    
     let { id } = useParams();
-
-    console.log(id)
      
  const filteredNodes = reviews.map(review => {
      return (
@@ -23,7 +20,7 @@ const ReviewList = ({ reviews }) => {
     
     return (
         <>
-            {/* <h1> Your reviewers for {review.track}!</h1> */}
+
             {filteredNodes}
         </>
     )

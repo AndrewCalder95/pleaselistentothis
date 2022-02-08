@@ -13,7 +13,6 @@ const TrackForm = ({createTrack}) => {
 
     const navigate = useNavigate();
 
-
     const handleSubmit = ev => {
     ev.preventDefault();
     createTrack({
@@ -27,13 +26,13 @@ const TrackForm = ({createTrack}) => {
     navigate("/mytracks");
   }
   
-
   return (
   <div id = "submitform">
     <form onSubmit={handleSubmit}>
       <h1>Add a Track</h1>
       <div id="forminputs">
-        <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Name:</label>
+          <br/>
         <input 
           type="text" 
           id="name" 
@@ -44,7 +43,8 @@ const TrackForm = ({createTrack}) => {
         />
       </div>
       <div id="forminputs">
-        <label htmlFor="comments">Comments:</label>
+          <label htmlFor="comments">Comments:</label>
+          <br/>
         <input 
           type="text" 
           id="comments" 
@@ -55,7 +55,8 @@ const TrackForm = ({createTrack}) => {
         />
       </div>
       <div id="forminputs">
-        <label htmlFor="url">Url:</label>
+          <label htmlFor="url">Url:</label>
+          <br/>
         <input 
           type="text" 
           id="url" 

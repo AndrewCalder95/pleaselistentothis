@@ -1,17 +1,30 @@
 import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import ActualReview from './ActualReview';
 
-const ReviewableTracks = ({ url, trackName, artistName, id}) => {
+const ReviewableTracks = ({ url, trackName, artistName, id, reviewContent}) => {
+  
+  const [showReviewPage, setShowReviewPage] = useState(false)
+  const [hideSwitch, setHideSwitch] = useState("");
+
+  const handleShowReviewPage = () => {
+    setShowReviewPage(true)
+    setHideSwitch(true)
+
+  }
 
     return(
-        <>
-          <h4>{artistName}: {trackName} </h4>
-          <ReactPlayer url={url} controls = {false} height={"150px"} width={""}/>
-          <Link to={`/reviewed/track/${id}`}>
-                    Review this one!
-            </Link>
+      <>
+        <div hidden={hideSwitch}>
+        <h4>{artistName}: {trackName} </h4>
+        <ReactPlayer url={url} controls={false} height={"150px"} width={""} />
+          <button onClick={handleShowReviewPage}> Review this one!</button>
+          </div>
+        {showReviewPage ?
+          <ActualReview id={id} reviewContent={reviewContent}/>
+                  : null}
 
-            
        </>
       )
 

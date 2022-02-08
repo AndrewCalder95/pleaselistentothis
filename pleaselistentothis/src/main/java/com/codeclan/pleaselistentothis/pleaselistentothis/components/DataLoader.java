@@ -44,23 +44,23 @@ public class DataLoader implements ApplicationRunner {
         Track track1 = new Track("Make Me Love", "https://soundcloud.com/andrewcaldermusic/make-me-love","Is this too long?", user1);
         trackRepository.save(track1);
 
-        Track track2 = new Track("In The End", "https://soundcloud.com/andrewcaldermusic/in-the-end","Not sure about this one", user1);
+        Track track2 = new Track("In The End", "https://soundcloud.com/andrewcaldermusic/in-the-end","Not sure about this one", user2);
         trackRepository.save(track2);
 
-        Track track4 = new Track("Take Me In (Let Me Go)", "https://soundcloud.com/andrewcaldermusic/take-me-in-let-me-go","What do you think about the ending?", user3);
-        trackRepository.save(track4);
+        Track track3 = new Track("Take Me In (Let Me Go)", "https://soundcloud.com/andrewcaldermusic/take-me-in-let-me-go","What do you think about the ending?", user3);
+        trackRepository.save(track3);
+//
+//        Track track5 = new Track("Do It Right", "https://soundcloud.com/andrewcaldermusic/do-it-right", "Is this too repetitive?", user2);
+//        trackRepository.save(track5);
 
-        Track track5 = new Track("Do It Right", "https://soundcloud.com/andrewcaldermusic/do-it-right", "Is this too repetitive?", user2);
-        trackRepository.save(track5);
 
-
-        Review review1 = new Review("good job", user2, track1);
+        Review review1 = new Review("good job", user1, track2);
         reviewRepository.save(review1);
 
-        Review review2 = new Review("nice",  user3, track2);
+        Review review2 = new Review("nice",  user2, track3);
         reviewRepository.save(review2);
 
-        Review review3 = new Review("good", user1, track4);
+        Review review3 = new Review("good", user3, track1);
         reviewRepository.save(review3);
 
 

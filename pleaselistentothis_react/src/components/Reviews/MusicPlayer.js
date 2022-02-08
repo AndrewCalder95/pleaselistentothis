@@ -1,16 +1,17 @@
 import React from "react";
 import ReactPlayer from 'react-player'
 import { Link } from "react-router-dom"
+import ReviewSubmit from "./ReviewSubmit";
 
-const MusicPlayer = ({ track }) => {
+const MusicPlayer = ({ trackList, createReview, id }) => {
 
   return(
     <>
-      <h1>{track.name}</h1>
+      <h2>{trackList.name}</h2>
       <div>
         <h4> Here's what they've said:</h4>
-         <p> {track.comments} </p>
-      <ReactPlayer url={track.url} controls={false} height={"150px"} width={""}/>
+         <p> {trackList.comments} </p>
+        <ReactPlayer url={trackList.url} controls={false} height={"150px"} width={""} />
       </div>
    </>
   )
