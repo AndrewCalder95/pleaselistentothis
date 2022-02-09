@@ -34,7 +34,7 @@ public class Track {
 
     @JsonBackReference
     @JsonIgnoreProperties({"tracks"})
-    @OneToMany(mappedBy = "track")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "track")
     private List<Review> reviews;
 
 

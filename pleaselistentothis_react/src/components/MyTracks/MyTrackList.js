@@ -23,7 +23,7 @@ const MyTrackList = ({tracks}) => {
   });
 
   const checkForContent = function () {
-    if (tracks.length == 0) {
+    if (filteredNodes.length == 0) {
       setDisplayMessage(false)
       setHideMessage(true)
     }
@@ -34,16 +34,15 @@ const MyTrackList = ({tracks}) => {
   
   return(
     <>
-      
+      <h1 hidden={hideMessage}>My Tracks</h1>
       <div id="notrackmessage">
-        <h2 hidden={displayMessage}> <i class="far fa-frown fa-2x"></i></h2>
+        <h2 hidden={displayMessage}> <i class="far fa-frown-open fa-2x" ></i></h2>
         <h2 hidden={displayMessage}> You haven't added any tracks yet! </h2>
-        <h2 hidden={displayMessage}> Just upload a track and watch the reviews flow in!! </h2>
+        <h2 hidden={displayMessage}> Upload a track and watch the reviews flow in!! </h2>
       </div>
       {filteredNodes}
     </>
   )
-
 }
 
 export default MyTrackList;

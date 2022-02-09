@@ -42,9 +42,9 @@ const Signup = () => {
   return (
     <div>
       <form id="signupformcontainer" onSubmit={handleSignup}>
-        <div id ="signupform">
-          <div id="forminputslogin">
-          {errorMessage}
+        <div id="signupform">
+        {errorMessage}
+          <div hidden ={true} id="forminputslogin">
           <label>First Name:</label>
           <br/>
         <input
@@ -54,7 +54,7 @@ const Signup = () => {
           onChange={(e) => setFirstName(e.target.value)}
         />
           </div>
-        <div id ="forminputslogin">
+        <div  hidden ={true} id ="forminputslogin">
           <label>Second Name:</label>
           <br/>
         <input

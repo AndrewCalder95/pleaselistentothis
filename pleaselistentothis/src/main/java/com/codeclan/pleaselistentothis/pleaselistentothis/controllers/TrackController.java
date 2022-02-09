@@ -84,5 +84,10 @@ public class TrackController {
         return new ResponseEntity<>(track, HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/tracks/{id}")
+    void deleteTrack(@PathVariable Long id) {
+        trackRepository.deleteById(id);
+    }
+
 
 }

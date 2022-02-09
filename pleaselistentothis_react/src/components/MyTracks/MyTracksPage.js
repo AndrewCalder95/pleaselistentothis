@@ -24,12 +24,12 @@ function MyTracksPage() {
         .then(res => res.json())
         .then(tracks => setTracks(tracks))
     }
+  
 
 
   return (
 
       <>
-      <h1>My Tracks</h1>
       <MyTrackList tracks={tracks} />
     </>
   )

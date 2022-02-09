@@ -132,8 +132,7 @@ a:visited {
 }
 
 button {
-  background-color: #FF8484;
-  background-color: #42abc2;
+  background-color: #a7dfff;
   font-family: 'Quicksand', sans-serif;
   font-size: large;
   margin-left: 20px;
@@ -144,18 +143,19 @@ button {
 
 button:hover {
   /* background-color: rgb(255, 83, 83); */
-  background-color: rgb(62, 120, 156);
+  background-color:#42abc2;
   cursor:pointer;
+  /* font-size: 19px; */
 }
 .inputbutton:hover {
   /* background-color: rgb(255, 83, 83); */
-  background-color: rgb(62, 120, 156);
+  background-color:#42abc2;  
   cursor:pointer;
 }
 
 .inputbutton {
   /* background-color: #FF8484; */
-  background-color: #42abc2;
+  background-color: #a7dfff;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   border-radius: 10%;
@@ -270,4 +270,8 @@ input {
 textarea {
   font-family: 'Quicksand', sans-serif;
 
+}
+
+#deleteButton {
+  color: red;
 }
