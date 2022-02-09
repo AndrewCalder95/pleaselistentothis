@@ -15,7 +15,7 @@ const MyTracks= ({ name, url, artistName, id }) => {
       <h4>{name} </h4>
       <ReactPlayer url={url} controls = {false} light={true}  height={"150px"} width={""}/>      {/* <h4> {reviews} </h4> */}
       <Link to={`/view/${id}`}>
-                Check on your reviews!
+                Click here to see if you have any reviewers!
         </Link>
         </div>
    </>

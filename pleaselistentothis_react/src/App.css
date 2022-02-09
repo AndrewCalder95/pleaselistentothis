@@ -266,3 +266,8 @@ input {
   font-style: bold;
   font-weight: 700;
 }
+
+textarea {
+  font-family: 'Quicksand', sans-serif;
+
+}

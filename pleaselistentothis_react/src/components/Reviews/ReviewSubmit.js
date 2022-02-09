@@ -45,7 +45,7 @@ const ReviewSubmit = ({ createReview, id, trackList, reviewContentFromReviewer, 
     <div hidden = {disable}>
       <p>Share your thoughts!</p>
       <div>
-        <input 
+        <textarea 
           class = "reviewForm"
           type="text" 
           id="name"

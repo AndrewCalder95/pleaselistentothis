@@ -38,11 +38,13 @@ return (
     <div hidden = {disable}>
       <p>Share your thoughts!</p>
       <div>
-        <input 
+        <textarea 
+          max-length= "255"
           class = "reviewForm"
           type="text" 
           id="name"
           name="comment" 
+          placeholder="Max 255 characters"
           value={reviewContent} 
           required 
           onChange={handleReviewContentChange}
