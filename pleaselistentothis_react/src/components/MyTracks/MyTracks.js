@@ -10,7 +10,8 @@ const MyTracks = ({ name, url, artistName, id }) => {
   
   const user = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
-  // const [deleteFired, setDeleteFired] = useState(false)
+  const [deleteFired, setDeleteFired] = useState(false)
+  const [showButton, setShowButton] = useState(true)
 
    
   const deleteTrack = function (){
@@ -23,6 +24,16 @@ const MyTracks = ({ name, url, artistName, id }) => {
                   'Authorization': "Bearer " + user.accessToken,
           },
      })
+  }
+
+  const clickToDelete = () => {
+    setDeleteFired(true)
+    setShowButton(false)
+  }
+
+  const clickToGoBack = () => {
+    setDeleteFired(false)
+    setShowButton(true)
   }
   
   const handleDelete = ev => {
@@ -42,7 +53,9 @@ const MyTracks = ({ name, url, artistName, id }) => {
                 Click here to see if you have any reviewers!
         </Link>
         <div>
-          <a id="deleteButton" onClick={handleDelete}>(Click here to delete this track!)</a>
+          <a onClick={clickToDelete} hidden = {deleteFired} id="deleteLink" >(Click here to delete this track!)</a>
+          <button onClick={handleDelete} hidden = {showButton} id="deleteButton">Delete</button>
+          <button onClick={clickToGoBack} hidden = {showButton} id="backButton">Go Back</button>
           </div>
         </div>
    </>

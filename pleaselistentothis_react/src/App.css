@@ -272,6 +272,28 @@ textarea {
 
 }
 
-#deleteButton {
+#deleteLink {
   color: red;
+}
+
+#deleteButton {
+  background-color: #ffa7a7;
+  font-family: 'Quicksand', sans-serif;
+  height: 30px;
+  font-weight: 500;
+  border-radius: 10%;
+  margin-left: 0px;
+
+  font-size: small;
+}
+
+#backButton {
+  background-color: #a7dfff;
+  font-family: 'Quicksand', sans-serif;
+  height: 30px;
+  font-weight: 500;
+  border-radius: 10%;
+  margin-left: 0px;
+
+  font-size: small;
 }
