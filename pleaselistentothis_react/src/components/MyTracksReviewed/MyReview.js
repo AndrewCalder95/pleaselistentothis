@@ -3,16 +3,19 @@ import { Link, useParams} from "react-router-dom"
 import ReactPlayer from 'react-player'
 import ReviewPage from "../Reviews/ReviewPage";
 import ActualReview from "../Reviews/ActualReview";
-
+import PeopleWhoHaveReviewed from "../Reviews/PeopleWhoHaveReviewed";
+import ReviewContent
+    from "../Reviews/ReviewContent";
 const MyReview = ({ reviewContent, userId, trackId, user }) => {
 
     let { id } = useParams();
     const [tracks, setTracks] = useState([])
-    const [hideSwitch, setHideSwitch] = useState("");
     const [reviewedTrack, setReviewedTrack] = useState([])
     const [showReviewPage, setShowReviewPage] = useState(true)
-    const [showReviewableTracks, setShowReviewableTracks] = useState(false)
     const [alreadyReviewed, setAlreadyReviewed] = useState(true)
+    const [hideReviewer, setHideReviewer] = useState('')
+    const [hideWhenReviewComplete, setHideWhenReviewComplete] = useState(true)
+    const [showWhenReviewComplete, setShowWhenReviewComplete] = useState(false)
 
     const userToken = JSON.parse(localStorage.getItem('user'));
 
@@ -24,14 +27,16 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
         getReviewedTrack()
     }, [])
     
-    const handleSeeReviewableTracksClick = (ev) => {
-        setShowReviewableTracks(true)
-        setHideSwitch(true)
-    }
 
     // const handleAlreadyReviewed = () => {
     //     setAlreadyReviewed(false)
     // }
+
+    const handleReviewDone = () => {
+        console.log("CALLED WOOOO")
+        setHideWhenReviewComplete(false)
+        setShowWhenReviewComplete(true)
+    }
 
   
 
@@ -63,11 +68,14 @@ const MyReview = ({ reviewContent, userId, trackId, user }) => {
       <>
           
           <div>
-              <h2 hidden={hideSwitch} >{user}</h2>
-              <a hidden={hideSwitch} onClick={handleSeeReviewableTracksClick}>Click here to pick one of their tracks to review to see what they've said about yours!</a>
-              {showReviewableTracks ?
-                      <ReviewPage user={user} id={userId} reviewContent={reviewContent}/>
-                  : null}
+              {hideWhenReviewComplete ?
+              <PeopleWhoHaveReviewed user = {user} reviewContent={reviewContent} userId={userId} trackId={trackId} user ={user} handleReviewDone = { handleReviewDone }/>
+                : null}
+              {showWhenReviewComplete ?
+                  <ReviewContent user={user} reviewContent={reviewContent} handleReviewDone = { handleReviewDone }/>
+                : null}
+              {/* <a hidden ={hideSwitch}>{reviewContent}</a> */}
+              
               </div>
           
    </>

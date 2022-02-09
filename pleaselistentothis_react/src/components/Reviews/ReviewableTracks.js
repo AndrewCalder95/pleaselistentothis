@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import ActualReview from './ActualReview';
 
-const ReviewableTracks = ({ url, trackName, artistName, id, reviewContent}) => {
+const ReviewableTracks = ({ url, trackName, artistName, id, reviewContent, handleReviewDone}) => {
   
   const [showReviewPage, setShowReviewPage] = useState(false)
   const [hideSwitch, setHideSwitch] = useState("");
@@ -22,7 +22,7 @@ const ReviewableTracks = ({ url, trackName, artistName, id, reviewContent}) => {
           <a onClick={handleShowReviewPage}> Review this one!</a>
           </div>
         {showReviewPage ?
-          <ActualReview id={id} reviewContent={reviewContent}/>
+          <ActualReview id={id} reviewContent={reviewContent} handleReviewDone={handleReviewDone}/>
                   : null}
 
        </>

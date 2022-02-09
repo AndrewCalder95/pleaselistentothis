@@ -61,6 +61,7 @@ const View = () => {
         <h2 hidden={displayMessage}> Please check back later! </h2>
       </div>
             <ReviewList reviews={reviews} />
+            
     </>
   )
 

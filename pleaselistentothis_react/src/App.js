@@ -41,6 +41,7 @@ function App() {
 
     <div>
       <nav>
+      <div id="navbar">
         <div class="navflexcontainer">
           <li>
             <Link to={"/"}>
@@ -80,7 +81,7 @@ function App() {
 
         {currentUser ? (
           <div class="navflexcontainer2">
-            <li>
+            <li id="itemlogout">
               <a href="/login" onClick={logOut}>
                 Logout
               </a>
@@ -88,7 +89,7 @@ function App() {
           </div>
         ) : (
           <div class="navflexcontainer2">
-            <li>
+            <li id="itemlogin">
               <Link to={"/login"}>
                 Login
               </Link>
@@ -100,7 +101,8 @@ function App() {
               </Link>
             </li>
           </div>
-        )}
+              )}
+        </div>
       </nav>
     </div>
 

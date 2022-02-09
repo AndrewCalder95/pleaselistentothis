@@ -6,7 +6,7 @@ import TrackService from "../../services/trackService";
 
 
 
-const ActualReview = ({id, reviewContent}) => {
+const ActualReview = ({id, reviewContent, handleReviewDone}) => {
   
     
     const [track, setTrack] = useState([]);
@@ -41,7 +41,7 @@ const ActualReview = ({id, reviewContent}) => {
       return (
 
         <>
-          <ReviewSubmit trackList={track} createReview={createReview} id={id} reviewContentFromReviewer={reviewContent}/>
+          <ReviewSubmit trackList={track} createReview={createReview} id={id} reviewContentFromReviewer={reviewContent} handleReviewDone={handleReviewDone}/>
           
         </>
     )

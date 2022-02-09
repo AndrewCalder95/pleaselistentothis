@@ -7,7 +7,14 @@ const Signup = () => {
     const [secondName, setSecondName] = useState("");
     const [artistName, setArtistName] = useState("");
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null)
+    const errorMessage = error 
+        ? <div className="error">
+        <p>Account already exists!</p>
+          <p>Try logging in!</p>
+          </div> 
+        : '';
   
 
   const navigate = useNavigate();
@@ -23,10 +30,12 @@ const Signup = () => {
         },
         (error) => {
           console.log(error);
+          setError(error)
         }
       );
     } catch (err) {
       console.log(err);
+      setError(err)
     }
   };
 
@@ -34,7 +43,8 @@ const Signup = () => {
     <div>
       <form id="signupformcontainer" onSubmit={handleSignup}>
         <div id ="signupform">
-        <div id ="forminputslogin">
+          <div id="forminputslogin">
+          {errorMessage}
           <label>First Name:</label>
           <br/>
         <input

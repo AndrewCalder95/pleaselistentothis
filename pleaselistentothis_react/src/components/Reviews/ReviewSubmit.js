@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import MusicPlayer from "./MusicPlayer";
 
-const ReviewSubmit = ({ createReview, id, trackList, reviewContentFromReviewer }) => {
+const ReviewSubmit = ({ createReview, id, trackList, reviewContentFromReviewer, handleReviewDone }) => {
   
     
   const [reviewContent, setReviewContent] = useState("");
@@ -13,7 +13,6 @@ const ReviewSubmit = ({ createReview, id, trackList, reviewContentFromReviewer }
 
   const handleReviewContentChange = (ev) => setReviewContent(ev.target.value);
 
-  console.log(reviewContentFromReviewer)
 
 
     const navigate = useNavigate();
@@ -30,7 +29,12 @@ const ReviewSubmit = ({ createReview, id, trackList, reviewContentFromReviewer }
       setDisable(true);
       setEnable(false);
       setHideReviewSubmit(false)
-  }
+      handleReviewDone()
+      
+    }
+
+  
+  
 
   return (
     <>
@@ -57,8 +61,8 @@ const ReviewSubmit = ({ createReview, id, trackList, reviewContentFromReviewer }
           <h2>Thank you!</h2>
           <h3>Here's what they said about your track:</h3>
           <p>{reviewContentFromReviewer}</p>
-      {/* <Link to={"/displayreview/${id}"}>
-      Click here to see what they said about your track!   
+          {/* <button onClick={handleClick}>CLICK HERE</button> */}
+      {/* <Link to={"/view/${id}"}>Click Here
               </Link> */}
       </div>
       </form>

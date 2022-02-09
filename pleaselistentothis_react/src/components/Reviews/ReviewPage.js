@@ -4,10 +4,11 @@ import React, { useState, useEffect } from "react";
 import ReviewableTracksList from "./ReviewableTracksList";
 
 
-const ReviewPage = ({id, reviewContent, user, setAsViewed}) => {
+const ReviewPage = ({id, reviewContent, handleReviewDone}) => {
 
     const [tracks, setTracks] = useState([])
     const [currentUserId, setCurrentUserId] = useState("")
+    const [displayMessage, setDisplayMessage] = useState(true);
 
     const userToken = JSON.parse(localStorage.getItem('user'));
 
@@ -18,6 +19,11 @@ const ReviewPage = ({id, reviewContent, user, setAsViewed}) => {
     useEffect(() => {
         getTracks()
     }, [currentUserId])
+
+    useEffect(() => {
+        checkForContent()
+    }, [tracks])
+    
 
 
 
@@ -33,10 +39,24 @@ const ReviewPage = ({id, reviewContent, user, setAsViewed}) => {
             .then(tracks => setTracks(tracks))
         
     }
+    console.log(tracks.length)
+
+    const checkForContent = function () {
+        if (tracks.length == 0) {
+            setDisplayMessage(false)
+        }
+        else {
+            setDisplayMessage(true)
+        }
+      }
         
-        return (
+    return (
+
             <>
-                <ReviewableTracksList tracks={tracks} reviewContent={reviewContent}/>
+            <div>
+                <h4 hidden={displayMessage}> This user doesn't have any tracks to review at the moment!! Please check back later! </h4> 
+            </div>
+                <ReviewableTracksList tracks={tracks} reviewContent={reviewContent} handleReviewDone={handleReviewDone}/>
             </>
         )
     

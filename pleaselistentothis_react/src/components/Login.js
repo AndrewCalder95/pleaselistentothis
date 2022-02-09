@@ -5,11 +5,19 @@ import AuthService from "../services/authService";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null)
+    const errorMessage = error 
+        ? <div className="error">
+        <p>Details not recognised!</p>
+          <p>Please try again or try signing up!!</p>
+          </div> 
+        : '';
 
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError(null);
     try {
       await AuthService.login(username, password).then(
         () => {
@@ -18,10 +26,12 @@ const Login = () => {
         },
         (error) => {
           console.log(error);
+          setError(error);
         }
       );
     } catch (err) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -29,7 +39,8 @@ const Login = () => {
     <div>
       <form id="loginformcontainer" onSubmit={handleLogin}>
         <div id="loginform">
-          <div id ="forminputslogin">
+          <div id="forminputslogin">
+          {errorMessage}
         <label>Username:</label>
         <input
           type="text"

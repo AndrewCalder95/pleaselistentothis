@@ -10,13 +10,15 @@ function Home() {
       <br/>
       <h3>Community Guidelines:</h3>
       <ul>
-        <li>Be kind</li>
+        <li>Only post Soundcloud links</li>
         <br/>
         <li>Be constructive with your cristicm</li>
         <br/>
         <li>Make sure to tell people if there's anything you specifically want feedback on</li>
         <br/>
         <li>Don't claim anyone else's work as your own</li>
+        <br />
+        <li>Be kind!!</li>
       </ul>
       </>
   )

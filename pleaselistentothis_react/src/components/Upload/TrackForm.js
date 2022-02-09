@@ -36,6 +36,7 @@ const TrackForm = ({createTrack}) => {
         <input 
           type="text" 
           id="name" 
+          placeholder="Track Name"
           name="name" 
           value={name} 
           required 
@@ -47,6 +48,7 @@ const TrackForm = ({createTrack}) => {
           <br/>
         <input 
           type="text" 
+          placeholder="Any comments on this track?"
           id="comments" 
           name="comments" 
           value={comments} 
@@ -59,6 +61,7 @@ const TrackForm = ({createTrack}) => {
           <br/>
         <input 
           type="text" 
+          placeholder="Enter a Soundcloud URL"
           id="url" 
           name="url" 
           value={url} 
